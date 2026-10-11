@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pokete-web</title>
+  <style>
+    body { font-family: sans-serif; margin: 1.5rem; max-width: 70rem; }
+    pre { background: #111; color: #e8e8e8; padding: 0.75rem; min-height: 18rem;
+          overflow: auto; font-family: ui-monospace, monospace; }
+    form { display: inline-block; margin-right: 1rem; }
+    .notice { padding: 0.5rem 0.75rem; background: #eef6ee; }
+  </style>
+</head>
+<body>
+  <h1>Pokete-web</h1>
+  <p id="notice" hidden></p>
+  <section>
+    <h2>Mods and saves</h2>
+    <form action="/mods" method="post" enctype="multipart/form-data">
+      <label>Mod <input type="file" name="mod" accept=".py" required></label>
+      <button type="submit">Upload mod</button>
+    </form>
+    <form action="/save" method="post" enctype="multipart/form-data">
+      <label>Save <input type="file" name="save" accept=".json,application/json" required></label>
+      <button type="submit">Upload save</button>
+    </form>
+    <p><a href="/save">Download save</a></p>
+  </section>
+  <section>
+    <h2>Game</h2>
+    <form action="/play" method="post">
+      <button type="submit">Start game</button>
+    </form>
+    <p id="session"></p>
+    <pre id="screen" tabindex="0">Game has not started.</pre>
+  </section>
+  <script src="/companion.js"></script>
+</body>
+</html>

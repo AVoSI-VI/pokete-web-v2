@@ -56,6 +56,21 @@ cd pokete/src
 python -m pokete
 ```
 
+## pokete-web
+
+pokete-web is a local page for this checkout. It listens on `127.0.0.1` only by default - if you want to make it accessible within your network edit the "HOST" value in web/server.py. From the repository root:
+
+```shell
+pip3 install scrap_engine
+python3 -m web.server
+```
+
+Open http://{HOST}:8765.
+
+From the page you can upload a mod (`.py`), upload a save (`pokete.json`), and download the stored save. Mods and saves are kept under `web/data/local/`. Uploading a mod turns on `load_mods` in that save. The page stores the mod file and does not run it; the game loads it on the next start.
+
+**Start game** shows the map as text and sends game keys to Pokete. It does not open a terminal. The colon key is ignored, so the in-game command entry is not available from the page.
+
 ## Usage
 
 The game can be run normally without supplying any options.
